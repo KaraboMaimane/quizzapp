@@ -1,0 +1,25 @@
+page-trivia3 {
+    ion-content{
+        background: url("../../assets/imgs/analogue-antique-boombox-159613.jpg");
+        background-size: cover;
+    }
+    div.flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .video{
+        width: 32rem;
+        height: 24rem;
+        
+    }
+
+    .videoFrame{
+        background: rgba(255, 255, 255, 0.6);
+        padding: 2rem;
+    }
+
+    ion-list{
+    
+    }
+}

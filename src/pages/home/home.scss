@@ -1,0 +1,40 @@
+page-home {
+    ion-content{
+        background: linear-gradient(rgba(0, 0, 0, 0.596), rgba(0, 0, 0, 0.219)),url("../../assets/imgs/israel-palacio-459693-unsplash.jpg");
+        background-size: cover;
+        background-position: left;
+    }
+
+    .contentBox{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 95vh;
+        border: rgba(255, 255, 255, 0.9) .7rem solid;
+        border-radius: 9rem;
+    }
+
+    .slogan, .headerText{
+        text-align: center;
+        color: white;
+    }
+
+    .headerText{
+        font-size: 5rem;
+        letter-spacing: .5rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 5rem;
+    }
+
+    .slogan{
+        font-style: italic;
+        font-weight: 400;
+        font-size: 3rem;
+    }
+
+    .btnFlex{
+        display: flex;
+        justify-content: center;
+    }
+}
