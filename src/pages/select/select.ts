@@ -3,7 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TriviaPage } from '../trivia/trivia';
 import { Trivia3Page } from '../trivia3/trivia3';
 import { Trivia2Page } from '../trivia2/trivia2';
-import ubaniArray from '../../app/ubani';
+import { Trivia4Page } from '../trivia4/trivia4';
+import { Trivia5Page } from '../trivia5/trivia5';
+
 /**
  * Generated class for the SelectPage page.
  *
@@ -22,7 +24,6 @@ export class SelectPage {
 
   ionViewDidLoad() {
     
-    console.log(ubaniArray);
   }
 
   loadPages(){
@@ -37,5 +38,12 @@ export class SelectPage {
     this.navCtrl.push(Trivia3Page);
   }
 
+  guess(){
+    this.navCtrl.push(Trivia4Page);
+  }
+
+  masala(){
+    this.navCtrl.push(Trivia5Page);
+  }
 
 }

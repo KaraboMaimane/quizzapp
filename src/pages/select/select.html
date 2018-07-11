@@ -7,14 +7,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Choose A Mode</ion-title>
+    <ion-title>Choose A Category</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h1>Select a mode that you would like to play: </h1>
+  <h1>Select a category that you would like to play: </h1>
   <ion-grid>
     <ion-row>
       <ion-col col-sm-12 col-md-6 col-lg-6>
@@ -33,25 +33,40 @@
       <ion-col col-sm-12 col-md-6 col-lg-6>
         <ion-card>
           <ion-card-title>
-            Ubani Lo?
+            Izwa, Ubani Lo?
           </ion-card-title>
           <ion-card-content>
             <p>This is a simple guess the artist kinda game, where you will hear a song and then you will have to take a guess
               based on the title and the artist</p>
-            <button ion-button block (click)="ubani()">Ubani Lo?</button>
+            <button ion-button block (click)="ubani()">Izwa, Ubani Lo?</button>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
+
     <ion-row>
+      <ion-col col-sm-12 col-md-6 col-lg-6>
+        <ion-card>
+          <ion-card-title>
+            Bheka, Ubani Lo?
+          </ion-card-title>
+          <ion-card-content>
+            <p>This is a basic show me the video style kinda quiz where you will see a sample of the video and guess the title
+              and the artist of the song</p>
+            <button ion-button block (click)="bimba()">Bheka, Ubani Lo?</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
       <ion-col col-sm-12 col-md-6 col-lg-6>
         <ion-card>
           <ion-card-title>
             Bimba
           </ion-card-title>
           <ion-card-content>
-            <p>This is a basic show me the video style kinda quiz where you will see a sample of the video and guess the title and the artist of the song</p>
-            <button ion-button block (click)="bimba()">Bimba</button>
+            <p>In this fun mode you will recieve a snippet of the lyric and you will have to guess from which song does that
+              lyric come from or who that lyric is by</p>
+            <button ion-button block (click)="guess()">Bimba</button>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -59,18 +74,16 @@
       <ion-col col-sm-12 col-md-6 col-lg-6>
         <ion-card>
           <ion-card-title>
-            Mix Masala
+            Angizwa
           </ion-card-title>
           <ion-card-content>
-            <p>This mod will randomise all the questions from the different categories... For the true master of the game</p>
-            <button ion-button block>Mix Masala</button>
+            <p>This mode, you will get a video but there is a slight twist... You have to guess what the video is as there will
+              be no audio just look and guess... Think you are ready for the challenge???</p>
+            <button ion-button block (click)="masala()">Angizwa</button>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
-
 
 </ion-content>

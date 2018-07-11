@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SelectPage } from '../select/select';
-import triviaArray from '../../app/pages';
+import { ModePage } from '../mode/mode';
 
 @Component({
   selector: 'page-home',
@@ -15,11 +15,10 @@ export class HomePage {
   }
 
   ionViewDidEnter(){
-    console.log(triviaArray);
   }
 
   nextPage(){
-    this.navCtrl.push(SelectPage);
+    this.navCtrl.push(ModePage);
   }
 
 }

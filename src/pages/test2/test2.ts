@@ -5,8 +5,9 @@ import counterArr from '../../assets/resources/counterArr';
 import correctArr from '../../assets/resources/correctarr';
 import incorrectArr from '../../assets/resources/incorrectarr';
 import { SelectPage } from '../select/select';
+import { Test3Page } from '../test3/test3';
 /**
- * Generated class for the Trivia2Page page.
+ * Generated class for the Test2Page page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,10 +15,11 @@ import { SelectPage } from '../select/select';
 
 @IonicPage()
 @Component({
-  selector: 'page-trivia2',
-  templateUrl: 'trivia2.html',
+  selector: 'page-test2',
+  templateUrl: 'test2.html',
 })
-export class Trivia2Page implements OnInit {
+export class Test2Page implements OnInit {
+
   random = Math.floor(Math.random() * 5);
   ubaniArra = ubaniArray[this.random];
   correct: number = 0;
@@ -67,7 +69,7 @@ export class Trivia2Page implements OnInit {
 
         this.randomise();
         this.navCtrl.pop();
-        this.navCtrl.push(Trivia2Page);
+        this.navCtrl.push(Test2Page);
       } else {
         const toast = this.toastCtrl.create({
           message: 'That Was Not Correct',
@@ -80,7 +82,7 @@ export class Trivia2Page implements OnInit {
         this.incorrectArr.push(this.incorrect);
         this.randomise();
         this.navCtrl.pop();
-        this.navCtrl.push(Trivia2Page);
+        this.navCtrl.push(Test2Page);
       }
     } else {
       const alert = this.alertCtrl.create({
@@ -98,7 +100,7 @@ export class Trivia2Page implements OnInit {
               
               console.log(this.correctArr, this.incorrectArr, this.counterArr);
               this.navCtrl.pop();
-              this.navCtrl.push(SelectPage);
+              this.navCtrl.push(Test3Page);
             } else {
               this.incorrect++;
 
@@ -107,7 +109,7 @@ export class Trivia2Page implements OnInit {
               this.counterArr.splice(0,this.counterArr.length);
 
               this.navCtrl.pop();
-              this.navCtrl.push(SelectPage);
+              this.navCtrl.push(Test3Page);
             }
           }
         }]

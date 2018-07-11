@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { NextQPage } from './next-q';
+import { Test2Page } from './test2';
 
 @NgModule({
   declarations: [
-    NextQPage,
+    Test2Page,
   ],
   imports: [
-    IonicPageModule.forChild(NextQPage),
+    IonicPageModule.forChild(Test2Page),
   ],
 })
-export class NextQPageModule {}
+export class Test2PageModule {}

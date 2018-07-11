@@ -5,9 +5,10 @@ import { SelectPage } from '../select/select';
 import incorrectArr from '../../assets/resources/incorrectarr';
 import correctArr from '../../assets/resources/correctarr';
 import counterArr from '../../assets/resources/counterArr';
-
+import { Trivia4Page } from '../trivia4/trivia4';
+import { Test4Page } from '../test4/test4';
 /**
- * Generated class for the Trivia3Page page.
+ * Generated class for the Test3Page page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,10 +16,10 @@ import counterArr from '../../assets/resources/counterArr';
 
 @IonicPage()
 @Component({
-  selector: 'page-trivia3',
-  templateUrl: 'trivia3.html',
+  selector: 'page-test3',
+  templateUrl: 'test3.html',
 })
-export class Trivia3Page implements OnInit{
+export class Test3Page implements OnInit{
 
   random = Math.floor(Math.random() * 5);
   bimbaArra = bimbaArray[this.random];
@@ -66,7 +67,7 @@ export class Trivia3Page implements OnInit{
         this.correctArr.push(this.correct);
         this.randomise();
         this.navCtrl.pop();
-        this.navCtrl.push(Trivia3Page);
+        this.navCtrl.push(Test3Page);
       } else {
         const toast = this.toastCtrl.create({
           message: 'That Was Not Correct',
@@ -78,7 +79,7 @@ export class Trivia3Page implements OnInit{
         this.incorrectArr.push(this.incorrect);
         this.randomise();
         this.navCtrl.pop();
-        this.navCtrl.push(Trivia3Page);
+        this.navCtrl.push(Test3Page);
       }
     } else {
       const alert = this.alertCtrl.create({
@@ -90,12 +91,12 @@ export class Trivia3Page implements OnInit{
             if (answer == this.bimbaArra.answer) {
               this.correct++;
               this.navCtrl.pop();
-              this.navCtrl.push(SelectPage);
+              this.navCtrl.push(Test4Page);
               //release your values here
             } else {
               this.incorrect++;
               this.navCtrl.pop();
-              this.navCtrl.push(SelectPage);
+              this.navCtrl.push(Test4Page);
               //release your values here
             }
           }
@@ -109,5 +110,6 @@ export class Trivia3Page implements OnInit{
     this.random = Math.floor(Math.random() * 5);
     this.bimbaArra = bimbaArray[this.random];
   }
+
 
 }

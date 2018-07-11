@@ -4,12 +4,6 @@ let ubaniArray = [];
 let masalaArray = [];
 let inc: number = 0;
 
-export default 
-triviaArray; 
-ubaniArray; 
-
-masalaArray;
-inc;
 
 export class Question{
     question;

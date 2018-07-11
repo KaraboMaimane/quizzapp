@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import triviaArray from '../../assets/resources/trivia';
 /**
- * Generated class for the TriviaPage page.
+ * Generated class for the Test1Page page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,10 +10,10 @@ import triviaArray from '../../assets/resources/trivia';
 
 @IonicPage()
 @Component({
-  selector: 'page-trivia',
-  templateUrl: 'trivia.html',
+  selector: 'page-test1',
+  templateUrl: 'test1.html',
 })
-export class TriviaPage implements OnInit {
+export class Test1Page {
   random = Math.floor(Math.random() * 5);
   triviaArra = triviaArray[this.random];
   items;
@@ -21,12 +21,7 @@ export class TriviaPage implements OnInit {
   incorrect: any;
   counter: number = 0;
 
-  reducer = (initVal, currVal) => initVal + currVal;//our reducer function
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private toastCtrl: ToastController) {
-  }
-
-  ngOnInit() {
   }
 
   compare(answer) {

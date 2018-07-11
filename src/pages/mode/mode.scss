@@ -1,0 +1,25 @@
+page-mode {
+    ion-content{
+        background: linear-gradient(rgba(0, 0, 0, 0.596), rgba(0, 0, 0, 0.219)),url("../../assets/imgs/israel-palacio-459693-unsplash.jpg");
+        background-size: cover;
+    }
+
+    .flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+
+    .container{
+        padding: 2rem;
+    }
+
+    .headerText{
+        font-size: 5rem;
+        letter-spacing: .5rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 5rem;
+    }
+}

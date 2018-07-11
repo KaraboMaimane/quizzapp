@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
-import triviaArray from '../../assets/resources/trivia';
+import guessArray from '../../assets/resources/guess';
 /**
- * Generated class for the TriviaPage page.
+ * Generated class for the Test4Page page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,12 +10,12 @@ import triviaArray from '../../assets/resources/trivia';
 
 @IonicPage()
 @Component({
-  selector: 'page-trivia',
-  templateUrl: 'trivia.html',
+  selector: 'page-test4',
+  templateUrl: 'test4.html',
 })
-export class TriviaPage implements OnInit {
+export class Test4Page {
   random = Math.floor(Math.random() * 5);
-  triviaArra = triviaArray[this.random];
+  guessArra = guessArray[this.random];
   items;
   correct: number = 0;
   incorrect: any;
@@ -31,7 +31,7 @@ export class TriviaPage implements OnInit {
 
   compare(answer) {
     if(this.counter < 5){
-      if (answer == this.triviaArra.answer) {
+      if (answer == this.guessArra.answer) {
         const toast = this.toastCtrl.create({
           message: 'That Was Correct',
           duration: 1000,
@@ -62,13 +62,12 @@ export class TriviaPage implements OnInit {
             // this.navCtrl.push(Trivia2Page, {round1score: this.correct});
           }
         }]
-      })
+      });
     }
   }
 
   randomise() {
     this.random = Math.floor(Math.random() * 5);
-    this.triviaArra = triviaArray[this.random];
+    this.guessArra = guessArray[this.random];
   }
-
 }
