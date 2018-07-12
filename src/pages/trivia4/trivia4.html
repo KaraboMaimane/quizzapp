@@ -4,20 +4,16 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Guess The Lyric</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
-  <h1>"{{ guessArra.question }}"</h1>
+  <h1 class="questionText">"{{ guessArra.question }}"</h1>
 
   <ion-list>
     <button ion-button block icon-right *ngFor="let answer of guessArra.answersArray | shuffle; let i = index" (click)="compare(answer)">{{ answer }}</button>
   </ion-list>
-
+  <p>correct
+    <ion-badge color="primary">{{ correct }}</ion-badge>
+  </p>
+  <p>incorrect
+    <ion-badge color="primary">{{ incorrect }}</ion-badge>
+  </p>
 </ion-content>

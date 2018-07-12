@@ -1,3 +1,37 @@
 page-select {
+    ion-content{
+        background: url("../../assets/imgs/3132.jpg");
+        background-size: cover;
+    }
 
+    .card-ios{
+        background: rgba(255, 255, 255, 0.6);
+    }
+    .headerText{
+        color: #666;
+        text-align: center;
+    }
+    .cheading{
+        text-align: center;
+        color: #666;
+    }
+
+    .btn{
+        margin-top: 2rem;
+    }
+
+    .img{
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .flex{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem;
+    }
+
+    .headset{
+        color: #f53d3d;
+    }
 }

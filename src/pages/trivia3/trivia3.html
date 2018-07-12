@@ -4,36 +4,20 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Bimba</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-xs-12 col-sm-12 col-md-8 col-lg-8 offset-md-2 offset-lg-2>
-        <div class="flex">
-          <div class="videoFrame">
-            <h1 text-center>{{ bimbaArra.question }}</h1>
-            <br>
-            <video controls autoplay id="videoPlayer" class="video">
-              <source [src]="video" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
+<ion-content padding>
+  <p class="counterText">Question {{ counterArr.length + 1}}</p>
+  <h1 class="questionText">{{ bimbaArra.question }}</h1>
+  <div class="flex">
+    <div class="content">
+      <video controls autoplay id="videoPlayer" class="video">
+        <source [src]="video" type="video/mp4">
+      </video>
+    </div>
+  </div>
   <ion-list>
-    <button ion-item icon-right *ngFor="let answer of bimbaArra.answersArray | shuffle; let i = index" (click)="compare(answer)">
+    <button ion-button block class="btn" *ngFor="let answer of bimbaArra.answersArray | shuffle; let i = index" (click)="compare(answer)">
       {{ answer }}</button>
   </ion-list>
 
-
+  <p>correct <ion-badge color="primary">{{ correctArr.length }}</ion-badge> incorrect <ion-badge color="primary">{{ incorrectArr.length }}</ion-badge></p>
 </ion-content>

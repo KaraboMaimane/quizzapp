@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import triviaArray from '../../assets/resources/trivia';
+import { SelectPage } from '../select/select';
 /**
  * Generated class for the TriviaPage page.
  *
@@ -18,7 +19,7 @@ export class TriviaPage implements OnInit {
   triviaArra = triviaArray[this.random];
   items;
   correct: number = 0;
-  incorrect: any;
+  incorrect: number = 0;
   counter: number = 0;
 
   reducer = (initVal, currVal) => initVal + currVal;//our reducer function
@@ -30,6 +31,7 @@ export class TriviaPage implements OnInit {
   }
 
   compare(answer) {
+    this.counter++;
     if(this.counter < 5){
       if (answer == this.triviaArra.answer) {
         const toast = this.toastCtrl.create({
@@ -39,7 +41,6 @@ export class TriviaPage implements OnInit {
         });
         toast.present();
         this.correct++;
-        this.counter++;
         this.randomise();
       } else {
         const toast = this.toastCtrl.create({
@@ -49,20 +50,26 @@ export class TriviaPage implements OnInit {
         });
         toast.present();
         this.incorrect++;
-        this.counter++;
         this.randomise();
       }
     }else{
       const alert = this.alertCtrl.create({
-        title: 'Level 2',
-        subTitle: 'Proceed to the next level...',
+        title: 'Quiz completed',
+        subTitle: `Proceed to another category`,
         buttons: [{
           text: 'Okay',
           handler: () => {
-            // this.navCtrl.push(Trivia2Page, {round1score: this.correct});
+            if (answer == this.triviaArra.answer) {
+              this.correct++;
+              this.navCtrl.push(SelectPage);
+            } else {
+              this.incorrect++;
+              this.navCtrl.push(SelectPage);
+            }
           }
         }]
-      })
+      });
+      alert.present();
     }
   }
 

@@ -1,12 +1,12 @@
 import { Component , OnInit} from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController, LoadingController } from 'ionic-angular';
 import bimbaArray from '../../assets/resources/bimba';
-import { SelectPage } from '../select/select';
 import incorrectArr from '../../assets/resources/incorrectarr';
 import correctArr from '../../assets/resources/correctarr';
 import counterArr from '../../assets/resources/counterArr';
-import { Trivia4Page } from '../trivia4/trivia4';
 import { Test4Page } from '../test4/test4';
+import { LoadpPage } from '../loadp/loadp';
+import scoreArray, { Score } from '../../assets/resources/score';
 /**
  * Generated class for the Test3Page page.
  *
@@ -32,7 +32,7 @@ export class Test3Page implements OnInit{
   counterArr = counterArr;
   video;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private alertCtrl: AlertController, public loadingCtrl:LoadingController) {
   }
 
   ngOnInit(){
@@ -67,7 +67,18 @@ export class Test3Page implements OnInit{
         this.correctArr.push(this.correct);
         this.randomise();
         this.navCtrl.pop();
-        this.navCtrl.push(Test3Page);
+        const loading = this.loadingCtrl.create({
+          content: 'Hold on...'
+        });
+
+        loading.present();
+
+        setTimeout(() => {
+
+          this.navCtrl.push(Test3Page);
+          loading.dismiss();
+        }, 1000);
+
       } else {
         const toast = this.toastCtrl.create({
           message: 'That Was Not Correct',
@@ -79,23 +90,44 @@ export class Test3Page implements OnInit{
         this.incorrectArr.push(this.incorrect);
         this.randomise();
         this.navCtrl.pop();
-        this.navCtrl.push(Test3Page);
+
+        const loading = this.loadingCtrl.create({
+          content: 'Hold on...'
+        });
+
+        loading.present();
+
+        setTimeout(() => {
+
+          this.navCtrl.push(Test3Page);
+          loading.dismiss();
+        }, 1000);
       }
     } else {
       const alert = this.alertCtrl.create({
-        title: 'Level 4',
-        subTitle: 'Proceed to the next level...',
+        title: 'Quiz Completed',
+        subTitle: 'Proceed to the next category',
         buttons: [{
           text: 'Okay',
           handler: () => {
             if (answer == this.bimbaArra.answer) {
               this.correct++;
-              this.navCtrl.pop();
+              let scoreIns = new Score("Bheka, Ubani Lo?", this.correct, this.incorrect);
+              scoreArray.push(scoreIns);
+              this.correctArr.splice(0,this.correctArr.length);
+              this.incorrectArr.splice(0,this.incorrectArr.length);
+              this.counterArr.splice(0,this.counterArr.length);
+              this.navCtrl.popTo(LoadpPage);
               this.navCtrl.push(Test4Page);
               //release your values here
             } else {
               this.incorrect++;
-              this.navCtrl.pop();
+              let scoreIns = new Score("Bheka, Ubani Lo?", this.correct, this.incorrect);
+              scoreArray.push(scoreIns);
+              this.correctArr.splice(0,this.correctArr.length);
+              this.incorrectArr.splice(0,this.incorrectArr.length);
+              this.counterArr.splice(0,this.counterArr.length);
+              this.navCtrl.popTo(LoadpPage);
               this.navCtrl.push(Test4Page);
               //release your values here
             }

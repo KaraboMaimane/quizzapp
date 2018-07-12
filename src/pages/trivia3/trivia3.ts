@@ -1,5 +1,5 @@
-import { Component , OnInit} from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController, AlertController, LoadingController } from 'ionic-angular';
 import bimbaArray from '../../assets/resources/bimba';
 import { SelectPage } from '../select/select';
 import incorrectArr from '../../assets/resources/incorrectarr';
@@ -18,7 +18,7 @@ import counterArr from '../../assets/resources/counterArr';
   selector: 'page-trivia3',
   templateUrl: 'trivia3.html',
 })
-export class Trivia3Page implements OnInit{
+export class Trivia3Page implements OnInit {
 
   random = Math.floor(Math.random() * 5);
   bimbaArra = bimbaArray[this.random];
@@ -31,10 +31,10 @@ export class Trivia3Page implements OnInit{
   counterArr = counterArr;
   video;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private alertCtrl: AlertController, public loadingCtrl: LoadingController) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.video = this.bimbaArra.video
   }
 
@@ -44,12 +44,12 @@ export class Trivia3Page implements OnInit{
     this.counter++;
     this.counterArr.push(this.counter);
 
-    if(this.counterArr.length == 5){
+    if (this.counterArr.length == 5) {
       this.counter = this.counterArr.reduce(this.reducer);
-      if(this.incorrectArr.length > 0){
+      if (this.incorrectArr.length > 0) {
         this.incorrect = this.incorrectArr.reduce(this.reducer);
       }
-      if(this.correctArr.length > 0){
+      if (this.correctArr.length > 0) {
         this.correct = this.correctArr.reduce(this.reducer);
       }
     }
@@ -65,8 +65,21 @@ export class Trivia3Page implements OnInit{
         this.correct++;
         this.correctArr.push(this.correct);
         this.randomise();
+
         this.navCtrl.pop();
-        this.navCtrl.push(Trivia3Page);
+
+        const loading = this.loadingCtrl.create({
+          content: 'Hold on...'
+        });
+
+        loading.present();
+
+        setTimeout(() => {
+
+          this.navCtrl.push(Trivia3Page);
+          loading.dismiss();
+        }, 1000);
+
       } else {
         const toast = this.toastCtrl.create({
           message: 'That Was Not Correct',
@@ -77,24 +90,44 @@ export class Trivia3Page implements OnInit{
         this.incorrect++;
         this.incorrectArr.push(this.incorrect);
         this.randomise();
+
         this.navCtrl.pop();
-        this.navCtrl.push(Trivia3Page);
+        const loading = this.loadingCtrl.create({
+          content: 'Hold on...'
+        });
+
+        loading.present();
+
+        setTimeout(() => {
+
+          this.navCtrl.push(Trivia3Page);
+          loading.dismiss();
+        }, 1000);
+
       }
     } else {
       const alert = this.alertCtrl.create({
-        title: 'Level 4',
-        subTitle: 'Proceed to the next level...',
+        title: 'Quiz Completed',
+        subTitle: 'Proceed to the next category',
         buttons: [{
           text: 'Okay',
           handler: () => {
             if (answer == this.bimbaArra.answer) {
               this.correct++;
-              this.navCtrl.pop();
+
+              this.correctArr.splice(0, this.correctArr.length);
+              this.incorrectArr.splice(0, this.incorrectArr.length);
+              this.counterArr.splice(0, this.counterArr.length);
+
               this.navCtrl.push(SelectPage);
               //release your values here
             } else {
               this.incorrect++;
-              this.navCtrl.pop();
+
+              this.correctArr.splice(0, this.correctArr.length);
+              this.incorrectArr.splice(0, this.incorrectArr.length);
+              this.counterArr.splice(0, this.counterArr.length);
+
               this.navCtrl.push(SelectPage);
               //release your values here
             }

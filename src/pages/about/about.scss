@@ -1,0 +1,24 @@
+page-about {
+    ion-content{
+        background: url("../../assets/imgs/sudhith-xavier-563308-unsplash.jpg");
+        background-size: cover;
+        filter: grayscale(.9);
+    }
+
+    h1, p{
+        color: white;
+        text-align: center;
+    }
+    .flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 99vh;
+    }
+    .container{
+        background: rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+    }
+
+    
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, LoadingController } from 'ionic-angular';
 import ubaniArray from '../../assets/resources/ubani';
 import counterArr from '../../assets/resources/counterArr';
 import correctArr from '../../assets/resources/correctarr';
@@ -28,7 +28,7 @@ export class Trivia2Page implements OnInit {
   counterArr = counterArr;
   audio;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private alertCtrl: AlertController, public loadingCtrl: LoadingController) {
   }
 
   ngOnInit() {
@@ -63,11 +63,21 @@ export class Trivia2Page implements OnInit {
           position: 'bottom'
         });
         toast.present();
-
-
         this.randomise();
         this.navCtrl.pop();
-        this.navCtrl.push(Trivia2Page);
+        
+        const loading = this.loadingCtrl.create({
+          content: 'Hold on...'
+        });
+        
+        loading.present();
+        
+        setTimeout(() => {
+          
+          this.navCtrl.push(Trivia2Page);
+          loading.dismiss();
+        }, 1000);
+
       } else {
         const toast = this.toastCtrl.create({
           message: 'That Was Not Correct',
@@ -79,13 +89,27 @@ export class Trivia2Page implements OnInit {
         this.incorrect++;
         this.incorrectArr.push(this.incorrect);
         this.randomise();
+
+
+
         this.navCtrl.pop();
-        this.navCtrl.push(Trivia2Page);
+
+        const loading = this.loadingCtrl.create({
+          content: 'Hold on...'
+        });
+        
+        loading.present();
+        
+        setTimeout(() => {
+          
+          this.navCtrl.push(Trivia2Page);
+          loading.dismiss();
+        }, 1000);
       }
     } else {
       const alert = this.alertCtrl.create({
-        title: 'Level 3',
-        subTitle: 'Proceed to the next level...',
+        title: 'Quiz Completed',
+        subTitle: 'Proceed to the next category',
         buttons: [{
           text: 'Okay',
           handler: () => {

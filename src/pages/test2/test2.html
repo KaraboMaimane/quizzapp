@@ -4,34 +4,31 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>test2</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-xs-12 col-sm-12 col-md-8 col-lg-8 offset-md-2 offset-lg-2>
-        <div class="flex">
-          <div class="videoFrame">
-            <h1 text-center>{{ ubaniArra.question }}</h1>
-            <br>
-            <audio controls autoplay>
-              <source [src]="audio" type="audio/mpeg">
-            </audio>
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+
+  <div class="textFlex">
+    <div class="containerText">
+      <p>correct
+        <ion-badge color="primary">{{ correctArr.length }}</ion-badge> incorrect
+        <ion-badge color="primary">{{ incorrectArr.length }}</ion-badge>
+      </p>
+    </div>
+  </div>
+
+  <p class="counterText">Question {{ counterArr.length + 1 }}</p>
+  <h1 class="questionText">{{ ubaniArra.question }}</h1>
+  <br>
+  <div class="flex">
+    <div class="content">
+      <audio controls autoplay>
+        <source [src]="audio" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
 
   <ion-list>
-    <button ion-item icon-right *ngFor="let answer of ubaniArra.answersArray | shuffle; let i = index" (click)="compare(answer)">
+    <button class="btn" ion-button block *ngFor="let answer of ubaniArra.answersArray | shuffle; let i = index" (click)="compare(answer)">
       {{ answer }}</button>
   </ion-list>
 

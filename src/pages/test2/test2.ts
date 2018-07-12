@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, LoadingController } from 'ionic-angular';
 import ubaniArray from '../../assets/resources/ubani';
 import counterArr from '../../assets/resources/counterArr';
 import correctArr from '../../assets/resources/correctarr';
 import incorrectArr from '../../assets/resources/incorrectarr';
-import { SelectPage } from '../select/select';
 import { Test3Page } from '../test3/test3';
+import scoreArray, { Score } from '../../assets/resources/score';
 /**
  * Generated class for the Test2Page page.
  *
@@ -30,11 +30,11 @@ export class Test2Page implements OnInit {
   counterArr = counterArr;
   audio;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private alertCtrl: AlertController, public loadingCtrl: LoadingController) {
   }
 
   ngOnInit() {
-    this.audio = this.ubaniArra.audio
+    this.audio = this.ubaniArra.audio;
   }
 
   reducer = (initVal, currVal) => initVal + currVal;
@@ -69,7 +69,18 @@ export class Test2Page implements OnInit {
 
         this.randomise();
         this.navCtrl.pop();
-        this.navCtrl.push(Test2Page);
+        const loading = this.loadingCtrl.create({
+          content: 'Hold on...'
+        });
+
+        loading.present();
+
+        setTimeout(() => {
+
+          this.navCtrl.push(Test2Page);
+          loading.dismiss();
+        }, 1000);
+
       } else {
         const toast = this.toastCtrl.create({
           message: 'That Was Not Correct',
@@ -82,28 +93,40 @@ export class Test2Page implements OnInit {
         this.incorrectArr.push(this.incorrect);
         this.randomise();
         this.navCtrl.pop();
-        this.navCtrl.push(Test2Page);
+        const loading = this.loadingCtrl.create({
+          content: 'Hold on...'
+        });
+
+        loading.present();
+
+        setTimeout(() => {
+
+          this.navCtrl.push(Test2Page);
+          loading.dismiss();
+        }, 1000);
+
       }
     } else {
       const alert = this.alertCtrl.create({
-        title: 'Level 3',
-        subTitle: 'Proceed to the next level...',
+        title: 'Quiz Completed',
+        subTitle: 'Proceed to the next category',
         buttons: [{
           text: 'Okay',
           handler: () => {
             if (answer == this.ubaniArra.answer) {
               this.correct++;
-
+              let scoreIns = new Score("Ubani Lo?", this.correctArr.length+this.correct, this.incorrectArr.length);
+              scoreArray.push(scoreIns);
               this.correctArr.splice(0,this.correctArr.length);
               this.incorrectArr.splice(0,this.incorrectArr.length);
               this.counterArr.splice(0,this.counterArr.length);
               
-              console.log(this.correctArr, this.incorrectArr, this.counterArr);
               this.navCtrl.pop();
               this.navCtrl.push(Test3Page);
             } else {
               this.incorrect++;
-
+              let scoreIns = new Score("Ubani Lo?", this.correctArr.length, this.incorrectArr.length+this.incorrect);
+              scoreArray.push(scoreIns);
               this.correctArr.splice(0,this.correctArr.length);
               this.incorrectArr.splice(0,this.incorrectArr.length);
               this.counterArr.splice(0,this.counterArr.length);

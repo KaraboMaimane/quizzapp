@@ -7,82 +7,105 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Choose A Category</ion-title>
+    <ion-title>Categories</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h1>Select a category that you would like to play: </h1>
+  <h1 class="headerText">Select a category </h1>
   <ion-grid>
     <ion-row>
-      <ion-col col-sm-12 col-md-6 col-lg-6>
+      <ion-col col-xs-12 col-sm-12 col-md-6 col-lg-6>
         <ion-card>
           <ion-card-title>
-            Music trivia
+            <h1 class="cheading">Music trivia</h1>
           </ion-card-title>
           <ion-card-content>
+            <div class="flex">
+              <div class="ccontainer">
+                <img src="../../assets/imgs/confused.png" alt="" class="img">
+              </div>
+            </div>
             <p>This is your old school guess the answer question/answer game. Do you think you know you 90's music trivia???
               Well take the challenge</p>
-            <button ion-button block (click)="loadPages()">Music Trivia</button>
+            <button class="btn" ion-button block (click)="loadPages()">Music Trivia</button>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col col-sm-12 col-md-6 col-lg-6>
+      <ion-col col-xs-12 col-sm-12 col-md-6 col-lg-6>
         <ion-card>
           <ion-card-title>
-            Izwa, Ubani Lo?
+            <h1 class="cheading">Izwa, Ubani Lo?</h1>
           </ion-card-title>
           <ion-card-content>
+            <div class="flex">
+              <div class="ccontainer">
+                <img src="../../assets/imgs/mamela.png" alt="" class="img">
+              </div>
+            </div>
             <p>This is a simple guess the artist kinda game, where you will hear a song and then you will have to take a guess
-              based on the title and the artist</p>
-            <button ion-button block (click)="ubani()">Izwa, Ubani Lo?</button>
+              based on the title and the artist</p><span class="headset">**Requires headsets**</span>
+            <button class="btn" ion-button block (click)="ubani()">Izwa, Ubani Lo?</button>
           </ion-card-content>
         </ion-card>
       </ion-col>
-    </ion-row>
 
-    <ion-row>
-      <ion-col col-sm-12 col-md-6 col-lg-6>
+      <ion-col col-xs-12 col-sm-12 col-md-6 col-lg-6>
         <ion-card>
           <ion-card-title>
-            Bheka, Ubani Lo?
+            <h1 class="cheading">Bheka, Ubani Lo?</h1>
           </ion-card-title>
           <ion-card-content>
+            <div class="flex">
+              <div class="ccontainer">
+                <img src="../../assets/imgs/dont-know-icon.png" alt="" class="img">
+              </div>
+            </div>
             <p>This is a basic show me the video style kinda quiz where you will see a sample of the video and guess the title
-              and the artist of the song</p>
-            <button ion-button block (click)="bimba()">Bheka, Ubani Lo?</button>
+              and the artist of the song</p><span class="headset">**Requires headsets**</span>
+            <button class="btn" ion-button block (click)="bimba()">Bheka, Ubani Lo?</button>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col col-sm-12 col-md-6 col-lg-6>
+      <ion-col col-xs-12 col-sm-12 col-md-6 col-lg-6>
         <ion-card>
           <ion-card-title>
-            Bimba
+            <h1 class="cheading">Bimba</h1>
           </ion-card-title>
           <ion-card-content>
+            <div class="flex">
+              <div class="ccontainer">
+                <img src="../../assets/imgs/confused.png" alt="" class="img">
+              </div>
+            </div>
             <p>In this fun mode you will recieve a snippet of the lyric and you will have to guess from which song does that
               lyric come from or who that lyric is by</p>
-            <button ion-button block (click)="guess()">Bimba</button>
+            <button class="btn" ion-button block (click)="guess()">Bimba</button>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col col-sm-12 col-md-6 col-lg-6>
-        <ion-card>
-          <ion-card-title>
-            Angizwa
-          </ion-card-title>
-          <ion-card-content>
-            <p>This mode, you will get a video but there is a slight twist... You have to guess what the video is as there will
-              be no audio just look and guess... Think you are ready for the challenge???</p>
-            <button ion-button block (click)="masala()">Angizwa</button>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
+      <ion-col col-xs-12 col-sm-12 col-md-6 col-lg-6>
+          <ion-card>
+            <ion-card-title>
+              <h1 class="cheading">Angizwa</h1>
+            </ion-card-title>
+            <ion-card-content>
+              <div class="flex">
+                <div class="ccontainer">
+                  <img src="../../assets/imgs/Deaf-symbol_solidbg.png" alt="" class="img">
+                </div>
+              </div>
+              <p>This mode, you will get a video but there is a slight twist... You have to guess what the video is as there will
+                  be no audio just look and guess... Think you are ready for the challenge???</p>
+                  <button class="btn" ion-button block (click)="masala()">Angizwa</button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
     </ion-row>
   </ion-grid>
 

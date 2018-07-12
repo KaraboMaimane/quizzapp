@@ -27,6 +27,12 @@ import triviaArray from '../assets/resources/trivia';
 import guessArray from '../assets/resources/guess';
 import masalaArray from '../assets/resources/masala';
 import { Trivia5Page } from '../pages/trivia5/trivia5';
+import { Test5Page } from '../pages/test5/test5';
+import { LoadpPage } from '../pages/loadp/loadp';
+import { Loadp2Page } from '../pages/loadp2/loadp2';
+import { ResultsPage } from '../pages/results/results';
+import { AboutPage } from '../pages/about/about';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +49,12 @@ import { Trivia5Page } from '../pages/trivia5/trivia5';
     Test1Page,
     Test2Page,
     Test3Page,
-    Test4Page
+    Test4Page,
+    Test5Page,
+    LoadpPage,
+    Loadp2Page,
+    ResultsPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -64,6 +75,11 @@ import { Trivia5Page } from '../pages/trivia5/trivia5';
     Test2Page,
     Test3Page,
     Test4Page,
+    Test5Page,
+    LoadpPage,
+    Loadp2Page,
+    ResultsPage,
+    AboutPage
   ],
   providers: [
     StatusBar,
