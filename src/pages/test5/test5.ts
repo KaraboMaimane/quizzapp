@@ -121,7 +121,7 @@ export class Test5Page {
               this.incorrectArr.splice(0,this.incorrectArr.length);
               this.counterArr.splice(0,this.counterArr.length);
 
-              this.navCtrl.push(ResultsPage);
+              this.navCtrl.push(ResultsPage, {scores: scoreArray});
               //release your values here
             } else {
               this.incorrect++;
@@ -132,7 +132,7 @@ export class Test5Page {
               this.incorrectArr.splice(0,this.incorrectArr.length);
               this.counterArr.splice(0,this.counterArr.length);
 
-              this.navCtrl.push(ResultsPage);
+              this.navCtrl.push(ResultsPage, {scores: scoreArray});
               //release your values here
             }
           }

@@ -4,19 +4,22 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>results</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
 
 <ion-content padding>
-<p *ngFor="let item of scoreArray">
-  Test: {{ item.test}} <br>
-  Correct:  {{ item.correct }}<br>
-  Incorrect:  {{ item.incorrect }}
-</p>
+
+  <ion-card *ngFor="let item of scoreArray">
+    <ion-card-title>
+      <p>Test: {{ item.test}}</p>
+    </ion-card-title>
+    <ion-card-content>
+      <p>
+        Correct: {{ item.correct }}
+        <br> Incorrect: {{ item.incorrect }}
+        <br> Score: {{ (item.correct/scoreArray.length)*100 }}</p>
+    </ion-card-content>
+  </ion-card>
+  <h1>Average Score:
+    <span class="scoreAvg">{{ score }}</span>
+  </h1>
+  <button ion-button (click)="backToMode()">Modes</button>
 </ion-content>
